@@ -4,8 +4,9 @@
 var express  = require('express'); 
 var connect = require('connect'); 
 var app      = express(); 
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var ipaddress = "127.0.0.1";
+var http = require('http');
+var port = 8080;
 // Configuration 
 app.use(express.static(__dirname + '/public')); 
 app.use(connect.logger('dev')); 
@@ -15,7 +16,7 @@ app.use(connect.urlencoded());
 
 require('./routes/routes.js')(app);  
 
-app.listen(port, ipaddress);  
+app.listen(port);  
 
 console.log('The App runs on port ' + port);
 

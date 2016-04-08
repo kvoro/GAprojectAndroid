@@ -1,6 +1,8 @@
 var chgpass = require('config/chgpass'); 
 var register = require('config/register'); 
-var login = require('config/login');   
+var login = require('config/login');  
+var action = require('config/action'); 
+var broadcast = require('config/broadcast');
 
 module.exports = function(app) {        
 
@@ -26,9 +28,10 @@ module.exports = function(app) {
 	  var firstname = req.body.firstname;
 	  var lastname = req.body.lastname;
 	  var city = req.body.city;
-	  var street = req.body.street;      
-
-          register.register(email,password,firstname, lastname, city, street ,function (found) {             
+	  var street = req.body.street;
+	  var gcmregid = req.body.regid;      
+          console.log(gcmregid);console.log(email);
+          register.register(email,password,firstname, lastname, city, street, gcmregid,function (found) {             
                console.log(found);             
                res.json(found);    
      });     
@@ -65,5 +68,34 @@ module.exports = function(app) {
           res.json(found);    
      
      });     
-     });  
+     });
+
+     app.post('/api/action', function(req, res) {         
+
+          var act = req.body.action;         
+          action.action(act,function(found){             
+               console.log(found);             
+               res.json(found);    
+          });     
+     });
+
+
+     //app.get('/api/broadcast', function (req, res) {
+     //     broadcast.broadcast(function(found){             
+     //          console.log(found);             
+     //          res.json(found);    
+     //     });
+     // }); 
+     app.get('/api/broadcast', function (req,res) {
+            broadcast.displayForm(res);
+     }); 
+     
+     app.post('/api/broadcast', function (req, res) {
+
+          broadcast.broadcast(function(req,res, found){             
+               console.log(found);             
+               res.json(found);    
+          });
+      });
+    
 };
