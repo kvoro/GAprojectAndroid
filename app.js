@@ -3,6 +3,7 @@
  */ 
 var express  = require('express'); 
 var connect = require('connect'); 
+var mongoose = require('mongoose');
 var app      = express(); 
 var ipaddress = "127.0.0.1";
 var http = require('http');
@@ -20,6 +21,7 @@ app.listen(port);
 
 console.log('The App runs on port ' + port);
 
+mongoose.connect('mongodb://localhost:27017/gaproject'); 
 
 app.post('/register',function(req,res){ 
 var email = req.body.email; // Getting the parameters 

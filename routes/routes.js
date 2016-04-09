@@ -72,8 +72,10 @@ module.exports = function(app) {
 
      app.post('/api/action', function(req, res) {         
 
-          var act = req.body.action;         
-          action.action(act,function(found){             
+          var act = req.body.action;
+	  var userEmail = req.body.userEmail;
+          console.log(userEmail);
+          action.action(act, userEmail,function(found){             
                console.log(found);             
                res.json(found);    
           });     
