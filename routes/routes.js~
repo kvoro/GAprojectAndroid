@@ -2,6 +2,7 @@ var chgpass = require('config/chgpass');
 var register = require('config/register'); 
 var login = require('config/login');  
 var action = require('config/action'); 
+var broadcast = require('config/broadcast');
 
 module.exports = function(app) {        
 
@@ -71,17 +72,32 @@ module.exports = function(app) {
 
      app.post('/api/action', function(req, res) {         
 
-          var act = req.body.action;         
-
-          action.action(act,function(found){             
-               console.log(found);             
+          var act = req.body.action;
+	  var userEmail = req.body.userEmail;
+          //console.log(userEmail);
+          action.action(act, userEmail,function(found){             
+               console.log('hello' + found);             
                res.json(found);    
           });     
      });
-     app.get('/api/broadcast', function (req, res) {
-          broadcast.broadcast(function(found){             
+
+
+     //app.get('/api/broadcast', function (req, res) {
+     //     broadcast.broadcast(function(found){             
+     //          console.log(found);             
+     //          res.json(found);    
+     //     });
+     // }); 
+     app.get('/api/broadcast', function (req,res) {
+            broadcast.displayForm(res);
+     }); 
+     
+     app.post('/api/broadcast', function (req, res) {
+
+          broadcast.broadcast(res, req, function(found){             
                console.log(found);             
                res.json(found);    
           });
-     });      
+      });
+    
 };

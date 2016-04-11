@@ -74,7 +74,7 @@ module.exports = function(app) {
 
           var act = req.body.action;
 	  var userEmail = req.body.userEmail;
-          console.log(userEmail);
+          //console.log(userEmail);
           action.action(act, userEmail,function(found){             
                console.log(found);             
                res.json(found);    
@@ -94,7 +94,7 @@ module.exports = function(app) {
      
      app.post('/api/broadcast', function (req, res) {
 
-          broadcast.broadcast(function(req,res, found){             
+          broadcast.broadcast(res, req, function(found){             
                console.log(found);             
                res.json(found);    
           });
