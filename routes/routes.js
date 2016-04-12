@@ -94,7 +94,7 @@ module.exports = function(app) {
      
      app.post('/api/broadcast', function (req, res) {
 
-          broadcast.broadcast(res, req, function(found){             
+          broadcast.broadcast(req, res, function(found){             
                console.log(found);             
                res.json(found);    
           });

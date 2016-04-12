@@ -76,7 +76,7 @@ module.exports = function(app) {
 	  var userEmail = req.body.userEmail;
           //console.log(userEmail);
           action.action(act, userEmail,function(found){             
-               console.log('hello' + found);             
+               console.log(found);             
                res.json(found);    
           });     
      });
