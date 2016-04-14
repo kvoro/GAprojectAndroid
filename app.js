@@ -21,7 +21,7 @@ app.listen(port);
 
 console.log('The App runs on port ' + port);
 
-mongoose.connect('mongodb://localhost:27017/gaproject'); 
+mongoose.connect('mongodb://wattsoffteam:group10T@ds023500.mlab.com:23500/wattsoff'); 
 
 app.post('/register',function(req,res){ 
 var email = req.body.email; // Getting the parameters 
