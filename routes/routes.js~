@@ -98,7 +98,7 @@ module.exports = function(app) {
                console.log(found);             
                //res.json(found);
                res.redirect('https://serene-plains-22803.herokuapp.com/api/broadcast');
-               res.end();
+               //res.end();
           });
       });
     
