@@ -1,7 +1,11 @@
 {
-  "name": "GAprojectAndroid",
-  "version": "0.0.1",
+"engines": {
+    "node": ">=0.10.0"
+  },  
+"name": "wattsoff",
+  "version": "1.0",
   "main": "app.js",
+  
   "dependencies": {
     "connect": "~2.14.4",
     "crypto": "~0.0.3",
