@@ -17,9 +17,9 @@ app.use(connect.urlencoded());
 
 require('./routes/routes.js')(app);  
 
-app.listen(port);  
+app.listen(PORT);  
 
-console.log('The App runs on port ' + port);
+console.log('The App runs on port ' + PORT);
 
 mongoose.connect('mongodb://wattsoffteam:group10T@ds023500.mlab.com:23500/wattsoff'); 
 
