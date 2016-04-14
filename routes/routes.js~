@@ -94,9 +94,11 @@ module.exports = function(app) {
      
      app.post('/api/broadcast', function (req, res) {
 
-          broadcast.broadcast(res, req, function(found){             
+          broadcast.broadcast(req, res, function(found){             
                console.log(found);             
-               res.json(found);    
+               //res.json(found);
+               res.redirect('https://serene-plains-22803.herokuapp.com/api/broadcast');
+               res.end();
           });
       });
     
