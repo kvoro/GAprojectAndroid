@@ -5,6 +5,10 @@
   },  
 "name": "wattsoff",
   "version": "1.0.1",
+    "node": ">=0.10.0"
+  },  
+"name": "wattsoff",
+  "version": "1.0",
   "main": "app.js",
   
   "dependencies": {
