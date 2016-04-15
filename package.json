@@ -3,14 +3,8 @@
     "node": "4.4.2",
     "npm" : "2.15.0"
   },  
-"name": "wattsoff",
+  "name": "wattsoff",
   "version": "1.0.1",
-    "node": ">=0.10.0"
-  },  
-"name": "wattsoff",
-  "version": "1.0",
-  "main": "app.js",
-  
   "dependencies": {
     "connect": "~2.14.4",
     "crypto": "~0.0.3",
